@@ -46,7 +46,7 @@ public class pruebas {
 		System.out.println(e3);
 		System.out.println(res);
 	*/
-		Estanque e0 = null;
+
 		Estanque e1 = null;  
 		Estanque e2 = null;
 		Estanque e3 = null;  
@@ -56,24 +56,23 @@ public class pruebas {
 		Estanque e7 = null;
 		Estanque e8 = null;  
 		Estanque e9 = null;
+
+		e1 = new Estanque(9, 70, 3, 0);
+		e2 = new Estanque(7, 50, 5, 3);
+		e3 = new Estanque(7, 80, 5, 5);
+		e4 = new Estanque(6, 60, 2, 5);
+		e5 = new Estanque(10, 50, 7, 2);
+		e6 = new Estanque(9, 30, 8, 7);
+		e7 = new Estanque(12, 40, 8, 8);
+		e8 = new Estanque(11, 70, 3, 8);
+		e9 = new Estanque(9, 60, 0, 3);
 		
-		e0 = new Estanque(0,0,0,null);
-		e1 = new Estanque(9, 70, 3, e0);
-		e2 = new Estanque(7, 50, 5, e1);
-		e3 = new Estanque(7, 80, 5, e2);
-		e4 = new Estanque(6, 60, 2, e3);
-		e5 = new Estanque(10, 50, 7, e4);
-		e6 = new Estanque(9, 30, 8, e5);
-		e7 = new Estanque(12, 40, 8, e6);
-		e8 = new Estanque(11, 70, 3, e7);
-		e9 = new Estanque(9, 60, 0, e8);
-		
-		Estanque[] estanques = {e0,e1,e2,e3,e4,e5,e6,e7,e8,e9};
+		Estanque[] estanques = {e1,e2,e3,e4,e5,e6,e7,e8,e9};
 		SistemaDeEstanques se = new SistemaDeEstanques(estanques);
 		//con 2070 no da con el de mariano
 		System.out.println((se.llenar(2070 + 190 + 190 + 190 + 190 + 360 + 250 + 510)));
 		System.out.println(se);
-		int s1 = 0;
+		
 		
 	}
 }

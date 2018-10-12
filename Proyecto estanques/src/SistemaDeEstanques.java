@@ -13,9 +13,9 @@ public class SistemaDeEstanques {
 			//return
 		}
 		
-		int desde = 1;
+		int desde = 0;
 		int hasta;
-		int i = 1;
+		int i = 0;
 		Estanque es;
 		int masBajo;
 		
@@ -70,7 +70,7 @@ public class SistemaDeEstanques {
 	
 	private int encontrarProximoCañoIzq(int e) {
 		int j = e;
-		while(j > 1 && (this.estanques[e].getCañoDelAnterior() - this.estanques[j].getCañoDelAnterior()) <= 0) {
+		while(j > 0 && (this.estanques[e].getCañoDelAnterior() - this.estanques[j].getCañoDelAnterior()) <= 0) {
 			j--;
 		}
 		return j;
@@ -119,7 +119,6 @@ public class SistemaDeEstanques {
 	public double llenarConjuntoHastaIzq(int desde, int hasta, double agua) {
 		
 		double[] volumenes = new double[hasta - desde + 1];
-		System.out.println(volumenes.length);
 		double h = this.estanques[desde].getHizq();
 		int volTot = 0;
 		
@@ -158,8 +157,8 @@ public class SistemaDeEstanques {
 	}
 	
 	public String toString() {
-		String out = "";
-		for(int i = 1; i < this.estanques.length; i++) {
+		String out =  "";
+		for(int i = 0; i < this.estanques.length; i++) {
 			out += this.estanques[i] + "\n";
 		}
 		return out;

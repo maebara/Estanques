@@ -6,14 +6,14 @@ public class Estanque {
 	private int capacidad;
 	private double volumenLleno = 0;
 	private int profCaño;
-	private Estanque anterior;
+	private int profCañoAnterior;
 	
-	public Estanque(int profundidad, int areaSup, int profCaño, Estanque anterior) {
+	public Estanque(int profundidad, int areaSup, int profCaño, int profCañoAnterior) {
 		this.profundidad = profundidad;
 		this.areaSup = areaSup;
 		this.capacidad = profundidad * areaSup;
 		this.profCaño = profCaño;
-		this.anterior = anterior;
+		this.profCañoAnterior = profCañoAnterior;
 	}
 	
 	public double llenarHastaCañoDerecho(double agua) {
@@ -43,7 +43,7 @@ public class Estanque {
 	}
 	
 	public int cañoMasBajo() {
-		if(this.profCaño < this.anterior.profCaño) {
+		if(this.profCaño < this.profCañoAnterior) {
 			return 0;
 		}else {
 			return 1;
@@ -59,11 +59,11 @@ public class Estanque {
 	
 	
 	public double getHizq() {
-		return (this.capacidad - volumenLleno)/this.areaSup - this.anterior.profCaño;
+		return (this.capacidad - volumenLleno)/this.areaSup - this.profCañoAnterior;
 	}
 	
 	public double llenarHastaCañoIzquierdo(double agua) {
-		int volumenHastaCaño = (this.profundidad - this.anterior.profCaño) * this.areaSup;
+		int volumenHastaCaño = (this.profundidad - this.profCañoAnterior) * this.areaSup;
 		double aLlenar = (agua > volumenHastaCaño)? volumenHastaCaño:agua;
 		volumenLleno = aLlenar;
 		return (int) (agua - volumenLleno);
@@ -75,15 +75,15 @@ public class Estanque {
 	}
 	
 	public int getCañoDelAnterior() {
-		return this.anterior.profCaño;
+		return this.profCañoAnterior;
 	}
 	
 	public int compCaño(Estanque es) {
-		return this.anterior.profCaño - es.profCaño;
+		return this.profCañoAnterior - es.profCaño;
 	}
 	
 	public boolean cañosIguales() {
-		return this.profCaño == anterior.profCaño;
+		return this.profCaño == this.profCañoAnterior;
 	}
 
 	public int getArea() {
