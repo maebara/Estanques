@@ -70,7 +70,7 @@ public class pruebas {
 		Estanque[] estanques = {e1,e2,e3,e4,e5,e6,e7,e8,e9};
 		SistemaDeEstanques se = new SistemaDeEstanques(estanques);
 		//con 2070 no da con el de mariano
-		System.out.println((se.llenar(2070 + 190 + 190 + 190 + 190 + 360 + 250 + 510)));
+		System.out.println((se.llenar(2070 + 190 + 190 + 190 + 190 + 360)));
 		System.out.println(se);
 		
 		
