@@ -8,51 +8,46 @@ public class SistemaDeEstanques {
 	
 	public double llenar(double agua) { //O(n^3)
 		
-		if(estanques.length == 1) {
-			estanques[0].llenarTodo(agua);
-			//return
-		}
-		
 		int desde = 0;
 		int hasta;
 		int i = 0;
+	
 		Estanque es;
-		int masBajo;
-		
+	
 		while( agua > 0 && i < estanques.length) { //O(n) total = //O(n^3)
 			
 			es = estanques[i];
-			masBajo = es.cañoMasBajo();
-			//O(1)
 			
-			if(masBajo == 0) {
+			if(es.cañoDerechoEsMasBajo()) {
 				
 				agua = es.llenarHastaCañoIzquierdo(agua); //O(n)
+		
 				hasta = i;
-				
+
 				if(agua > 0 && estanques[desde].compCaño(estanques[hasta]) >= 0) {//O(n) total = //O(n^2)
 					
-					//llenar  hasta caño izq
+					
 					agua = this.llenarConjuntoHastaIzq(desde, hasta, agua);//O(n)
 					
 					desde = encontrarProximoCañoIzq(desde);
+					
 					while(agua > 0 && this.estanques[desde].compCaño(this.estanques[hasta]) > 0){//O(n^2)
 						agua = this.llenarConjuntoHastaIzq(desde, hasta, agua);//O(n)
 						desde = encontrarProximoCañoIzq(desde);
 					}
-					//llenar hasta caño der
+					
 					
 					if(agua > 0) { //O(n)
 						agua = this.llenarConjuntoHastaDer(desde, hasta, agua);
 					}
 				}else {//O(n)
-					//llenar hasta caño der
+				
 					if(agua > 0) {
 						agua = this.llenarConjuntoHastaDer(desde, hasta, agua);
 					}
 				}
 					
-			}else {//O(1)
+			}else {
 				
 				agua = es.llenarHastaCañoDerecho(agua);
 				

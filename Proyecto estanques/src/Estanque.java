@@ -36,46 +36,39 @@ public class Estanque {
 			return 0;
 		}
 	}
-	
-	public double llenarTodo(double agua) {
-		this.volumenLleno = capacidad;
-		return agua - capacidad;
-	}
-	
-	public int cañoMasBajo() {
-		if(this.profCaño < this.profCañoAnterior) {
-			return 0;
-		}else {
-			return 1;
-		}
-	}
-	public int getCaño() {
-		return this.profCaño;
-	}
-	
-	public double getProfCaño() {
-		return (this.capacidad - volumenLleno)/this.areaSup - this.profCaño;
-	}
-	
-	
-	public double getHizq() {
-		return (this.capacidad - volumenLleno)/this.areaSup - this.profCañoAnterior;
-	}
-	
+
 	public double llenarHastaCañoIzquierdo(double agua) {
 		int volumenHastaCaño = (this.profundidad - this.profCañoAnterior) * this.areaSup;
 		double aLlenar = (agua > volumenHastaCaño)? volumenHastaCaño:agua;
 		volumenLleno = aLlenar;
 		return (int) (agua - volumenLleno);
 	}
-
 	
 	public String toString() {
 		return this.volumenLleno + " de  " + capacidad + " con h desde la base = " + (this.profundidad - (this.capacidad - volumenLleno)/this.areaSup) + " h tope = " + (this.capacidad - volumenLleno)/this.areaSup;
 	}
 	
+	
+	
+	
+	public double getHizq() {
+		return (this.capacidad - volumenLleno)/this.areaSup - this.profCañoAnterior;
+	}
+
+	public double getProfCaño() {
+		return (this.capacidad - volumenLleno)/this.areaSup - this.profCaño;
+	}
+	
 	public int getCañoDelAnterior() {
 		return this.profCañoAnterior;
+	}
+
+	public int getCaño() {
+		return this.profCaño;
+	}
+	
+	public int getArea() {
+		return this.areaSup;
 	}
 	
 	public int compCaño(Estanque es) {
@@ -86,10 +79,14 @@ public class Estanque {
 		return this.profCaño == this.profCañoAnterior;
 	}
 
-	public int getArea() {
-		return this.areaSup;
+	public boolean cañoDerechoEsMasBajo() {
+		return this.profCaño < this.profCañoAnterior;
 	}
 
+	
+	
+	
+	
 	
 	
 }
