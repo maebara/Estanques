@@ -45,12 +45,12 @@ public class ArchivoEstanques {
 			for(int i = 1; i < cant; i = i + 2) {
 				file.print(lista.get(i) + " " + lista.get(i + 1) + System.lineSeparator());
 			}
-			file.close();
+			
 			
 		}
 		
 		
-		
+		file.close();
 		
 	}
 	
