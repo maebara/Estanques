@@ -28,11 +28,11 @@ public class ArchivoEstanques {
 		
 		SistemaDeEstanques se = new SistemaDeEstanques(estanques);
 		double aguaRes = se.llenar(agua);
-		
+		System.out.println(se); // para ver todos los estanques
 		PrintWriter file = new PrintWriter(pathSalida);
 		
 		if(aguaRes > 0) {
-			file.print("Hay desborde: " + aguaRes);
+			file.print("Hay desborde: " + (int)aguaRes);
 		}else {
 			
 			LinkedList<Integer> lista = se.estadoEstanques();

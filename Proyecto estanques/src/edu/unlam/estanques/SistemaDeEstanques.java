@@ -76,7 +76,6 @@ public class SistemaDeEstanques {
 		
 		for(Estanque e : this.estanques) {
 			if((h = e.calcularHdesdeBase()) > 0) {
-				System.out.println(h);
 				lista.add(++cant);
 				lista.add(h);
 			}
