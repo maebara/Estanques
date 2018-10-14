@@ -1,3 +1,8 @@
+package edu.unlam.estanques;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class SistemaDeEstanques {
 	
 	private Estanque[] estanques;
@@ -63,6 +68,25 @@ public class SistemaDeEstanques {
 		
 	}
 	
+	public LinkedList<Integer> estadoEstanques() {
+		
+		int h;
+		int cant = 0;
+		LinkedList<Integer> lista = new LinkedList<>();
+		
+		for(Estanque e : this.estanques) {
+			if((h = e.calcularHdesdeBase()) > 0) {
+				System.out.println(h);
+				lista.add(++cant);
+				lista.add(h);
+			}
+		}
+		
+		lista.addFirst(cant);
+		return lista;
+		
+	}
+	
 	private int encontrarProximoCañoIzq(int e) {
 		int j = e;
 		while(j > 0 && (this.estanques[e].getCañoDelAnterior() - this.estanques[j].getCañoDelAnterior()) <= 0) {
@@ -74,6 +98,7 @@ public class SistemaDeEstanques {
 	public double llenarConjuntoHastaDer(int desde, int hasta, double agua) { //O(n)
 	
 		double[] volumenes = new double[hasta - desde + 1];
+	
 		double h = this.estanques[hasta].getProfCaño();
 		
 		int volTot = 0;

@@ -1,3 +1,4 @@
+package edu.unlam.estanques;
 
 public class Estanque {
 	
@@ -8,7 +9,7 @@ public class Estanque {
 	private int profCaño;
 	private int profCañoAnterior;
 	
-	public Estanque(int profundidad, int areaSup, int profCaño, int profCañoAnterior) {
+	public Estanque( int areaSup, int profundidad, int profCaño, int profCañoAnterior) {
 		this.profundidad = profundidad;
 		this.areaSup = areaSup;
 		this.capacidad = profundidad * areaSup;
@@ -45,11 +46,15 @@ public class Estanque {
 	}
 	
 	public String toString() {
-		return this.volumenLleno + " de  " + capacidad + " con h desde la base = " + (this.profundidad - (this.capacidad - volumenLleno)/this.areaSup) + " h tope = " + (this.capacidad - volumenLleno)/this.areaSup;
+		return this.volumenLleno + " de  " + capacidad + " con h desde la base = " + (this.profundidad - (this.capacidad - volumenLleno)/this.areaSup) + " , h truncado : " + this.calcularHdesdeBase() +  ",  h tope = " + (this.capacidad - volumenLleno)/this.areaSup;
 	}
 	
 	
-	
+	public int calcularHdesdeBase() {
+		double h = (this.profundidad - (this.capacidad - volumenLleno)/this.areaSup);
+
+		return (int)h ;
+	}
 	
 	public double getHizq() {
 		return (this.capacidad - volumenLleno)/this.areaSup - this.profCañoAnterior;
